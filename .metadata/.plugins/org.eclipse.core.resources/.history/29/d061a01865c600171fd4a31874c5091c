@@ -1,0 +1,16 @@
+
+public class SimpleObjectController implements IController{
+
+	private SimpleObjectView view;
+	
+	public SimpleObjectController(SimpleObjectView view) {
+		this.view = view;
+	}
+	
+	
+	@Override
+	public void onTextInput(String input) {
+		
+	}
+
+}

@@ -1,0 +1,9 @@
+
+public class SimpleObjectController implements IController{
+
+	@Override
+	public void onTextInput(String input) {
+		
+	}
+
+}

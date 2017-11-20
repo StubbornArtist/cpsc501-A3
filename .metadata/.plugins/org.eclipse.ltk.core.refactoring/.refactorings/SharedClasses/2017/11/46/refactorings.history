@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;ArrayObject&apos; to &apos;PrimitiveArrayObject&apos;&#x0D;&#x0A;- Original project: &apos;SharedClasses&apos;&#x0D;&#x0A;- Original element: &apos;ArrayObject&apos;&#x0D;&#x0A;- Renamed element: &apos;PrimitiveArrayObject&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ArrayObject&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{ArrayObject.java[ArrayObject" matchStrategy="1" name="PrimitiveArrayObject" qualified="false" references="true" similarDeclarations="false" stamp="1510707250415" textual="false" version="1.0"/>
+</session>

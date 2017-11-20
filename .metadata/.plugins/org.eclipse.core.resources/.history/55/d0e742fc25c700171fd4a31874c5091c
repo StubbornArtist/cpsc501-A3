@@ -1,0 +1,29 @@
+import java.io.DataInputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class ObjectReciever {
+
+	private static ServerSocket socket;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		try {
+			
+			socket = new ServerSocket(8080);
+			socket.setSoTimeout(100000);
+			Socket server = socket.accept();
+			
+			
+			DataInputStream in = new DataInputStream(server.getInputStream());
+			
+		}
+		catch(Exception e) {	
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}

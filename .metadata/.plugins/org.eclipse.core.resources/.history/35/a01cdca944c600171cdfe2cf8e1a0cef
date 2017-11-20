@@ -1,0 +1,18 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Inspector i = new Inspector();
+		ReferenceObject o = new ReferenceObject();
+		
+		o.addSimpleObject(new SimpleObject());
+		o.addSimpleObject(new SimpleObject());
+		o.setSimpleObject(new SimpleObject());
+		
+		i.inspect(o);
+
+	}
+
+}

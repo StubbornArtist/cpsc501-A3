@@ -1,0 +1,24 @@
+import java.lang.reflect.Array;
+
+import org.jdom2.Element;
+
+public class XMLArray extends XMLObject{
+	private Integer length;
+	private static final String LENGTH_KEY;
+	
+	protected XMLArray(Element objElement) {
+		super(objElement);
+		
+		String len = objElement.getAttributeValue("length");
+		length = new Integer(len);
+		
+	}
+	
+	@Override
+	public Object construct() {
+		return Array.newInstance(getType(), length);
+	}
+	
+
+
+}

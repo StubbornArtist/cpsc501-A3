@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class ReferenceArrayObjectView extends ObjectView {
+
+	public void requestLength() {
+		System.out.println("int length : ");
+	}
+	
+
+	
+	@Override
+	public void run() {
+		List<String> args = new ArrayList<String>();
+		
+		requestLength();
+		args.add(getLine());
+		
+		
+		
+		
+	}
+
+	@Override
+	public String getName() {
+		return "ReferenceArrayObjectView";
+	}
+
+}

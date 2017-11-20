@@ -1,0 +1,20 @@
+import java.util.List;
+
+public class ReferenceObjectController implements IController{
+
+	private ObjectView view;
+	private ReferenceObject model;
+	
+	public ReferenceObjectController(ObjectView view) {
+		this.view = view;
+		this.model = new ReferenceObject();
+	}
+	
+	
+	@Override
+	public void onTextInput(List<String> input) {
+		
+		
+	}
+
+}

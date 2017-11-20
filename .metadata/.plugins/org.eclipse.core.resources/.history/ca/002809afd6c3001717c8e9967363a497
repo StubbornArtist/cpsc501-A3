@@ -1,0 +1,55 @@
+import java.lang.reflect.Field;
+import java.util.HashMap;
+
+import org.jdom2.Element;
+
+public class XMLField {
+	
+	
+	private Class<?> declaringClass;
+	private String name;
+	
+	public static final String CLASS_KEY = "declaringclass";
+	public static final String NAME_KEY = "name";
+	
+	
+	public XMLField(Element fieldElement) {
+		
+		name = fieldElement.getAttributeValue(NAME_KEY);
+		String className = fieldElement.getAttributeValue(CLASS_KEY);
+		
+		try {
+			declaringClass = Class.forName(className);
+		}
+		catch(ClassNotFoundException e) {
+			
+			throw new RuntimeException();
+		}
+		
+	}
+	
+	
+	
+	public static boolean isField(Element objElement) {
+		return objElement.getAttribute(NAME_KEY) != null &&
+				objElement.getAttribute(CLASS_KEY) != null;
+
+	}
+	
+	
+	public Field construct() {
+		try {
+			return declaringClass.getDeclaredField(name);
+		}
+		catch(NoSuchFieldException e) {
+			throw new RuntimeException();
+		}
+	}
+	
+	public void set(Object obj, HashMap<Integer, XMLMember> existing) {
+		
+		
+		
+	}
+
+}

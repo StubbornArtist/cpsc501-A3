@@ -1,0 +1,14 @@
+import java.lang.reflect.Field;
+
+public class InspectedField {
+	
+	private InspectedObject value;
+	
+	
+	public InspectedField(Field field) {
+		
+		
+		
+	}
+
+}

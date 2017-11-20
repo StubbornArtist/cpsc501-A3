@@ -1,0 +1,17 @@
+
+public class ArrayObject {
+	
+	private char [] primitiveArray;
+	
+	public ArrayObject() {
+		this(1);
+	}
+	public ArrayObject(int len) {
+		primitiveArray = new char[len];
+	}
+		
+	public void setAt(int index, char prim) {
+		primitiveArray[index] = prim;
+	}
+	
+}

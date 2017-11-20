@@ -1,0 +1,11 @@
+
+public class ObjectInspector {
+	
+	
+	public String inspect(Object obj) {
+		
+		
+		
+	}
+
+}

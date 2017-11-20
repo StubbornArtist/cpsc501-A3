@@ -1,0 +1,15 @@
+
+public class ReferenceCollectionObjectView extends ObjectView{
+
+	@Override
+	public String getName() {
+		return "ReferenceCollectionObject";
+	}
+
+	@Override
+	public void run() {
+		
+		
+	}
+
+}

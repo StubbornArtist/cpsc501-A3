@@ -1,0 +1,21 @@
+import java.lang.reflect.Field;
+
+public class InspectedField extends InspectedComponent{
+	
+	private InspectedObject value;
+	private Field field;
+	
+	public InspectedField(Field field) {
+		this.field = field;
+	}
+	
+	
+	
+	@Override
+	public String inspect() {
+		
+		
+		
+	}
+
+}

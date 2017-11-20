@@ -1,0 +1,41 @@
+import java.util.List;
+
+import org.jdom2.Element;
+
+public abstract class XMLMember {
+	
+	public static final String ID_KEY = "id";
+	public static final String CLASS_KEY = "class";
+	public static final String LENGTH_KEY = "length";
+	public static final String DEC_CLASS_KEY = "declaringclass";
+	public static final String NAME_KEY = "name";
+	
+	public static XMLMember get(Element objElement) {
+		
+		if(isArray(objElement)) {
+			return new XMLArray(objElement);
+		}
+		else if(isObject(objElement)) {
+			return new XMLObject(objElement);
+		}
+		throw new RuntimeException("Invalid element");
+	}
+	
+	
+	public abstract Object construct();
+	
+	public abstract Integer getId();
+	
+	
+	
+	public static boolean isObject(Element objElement) {
+		return objElement.getAttribute(ID_KEY) != null &&
+				objElement.getAttribute(CLASS_KEY) != null;
+	}
+	
+	public static boolean isArray(Element objElement) {
+		return objElement.getAttribute(LENGTH_KEY) != null &&
+				XMLObject.isObject(objElement);		
+	}
+
+}

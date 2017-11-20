@@ -1,0 +1,25 @@
+import java.util.HashMap;
+
+import org.jdom2.Element;
+
+public class XMLRoot {
+	
+	private Element root;
+	private HashMap<Integer, Object> references;
+	
+	public XMLRoot(Element root) {
+		references = new HashMap<Integer, Object>();
+		this.root = root;
+	}
+	
+	
+	public void createByID(Integer id) {
+		for(Element e : root.getChildren()) {
+			if(e.getAttribute("id").equals(id.toString())) {
+				XMLMember.get(e).construct();
+			}
+			
+		}
+		
+	}
+}

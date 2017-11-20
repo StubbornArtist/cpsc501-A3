@@ -1,0 +1,18 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		SimpleObjectView view1 = new SimpleObjectView();
+		view1.addListener(new SimpleObjectController());
+		
+		ObjectCreatorView view = new ObjectCreatorView();
+		view.addObjectView(view1);
+		
+		ObjectCreatorController controller = new ObjectCreatorController(view);
+		
+		view.run();
+	}
+
+}

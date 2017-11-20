@@ -1,0 +1,6 @@
+
+public class ArrayObject {
+	
+	private char [] primitiveArray;
+
+}

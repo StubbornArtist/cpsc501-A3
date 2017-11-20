@@ -1,0 +1,19 @@
+
+public class Inspector {
+	
+	
+	public void inspect(Object obj) {
+		InspectedObject result = InspectedObject.create(obj);
+		
+		System.out.println(result.inspect());
+		
+		System.out.println("Members : ");
+		
+		for(InspectedObject member : result.getMembers()) {
+			
+			System.out.println(member.inspect());
+			
+		}
+	}
+
+}

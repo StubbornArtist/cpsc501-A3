@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class ReferenceObjectView implements ObjectView{
+
+	private IController controller;
+	private Scanner input;
+	
+	@Override
+	public String getName() {
+		return "ReferenceObject";
+	}
+
+	@Override
+	public void run() {
+		
+		
+	}
+
+	@Override
+	public void addListener(IController controller) {
+		this.controller = controller;
+	}
+
+}

@@ -1,0 +1,26 @@
+import org.jdom2.Element;
+
+public class XMLObject extends XMLMember{
+		
+	
+	protected XMLObject(Element objElement) {
+		super(objElement);
+	}
+
+	public static boolean isObject(Element objElement) {
+		return objElement.getAttribute(ID_KEY) != null &&
+				objElement.getAttribute(CLASS_KEY) != null;
+	}
+		
+	@Override
+	public Object construct() {
+		try {
+			return getType().newInstance();
+		}
+		catch(Exception e) {
+			throw new RuntimeException();
+		}
+	}
+		
+	
+}

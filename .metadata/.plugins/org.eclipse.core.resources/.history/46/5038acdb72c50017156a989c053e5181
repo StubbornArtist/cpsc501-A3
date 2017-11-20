@@ -1,0 +1,6 @@
+
+public class ReferenceObject {
+	
+	private Collection<SimpleObject> simpleObjects;
+
+}

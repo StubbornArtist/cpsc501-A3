@@ -1,0 +1,6 @@
+
+public class ReferenceArrayObject {
+	
+	private SimpleObject [] simpleObjects;
+
+}

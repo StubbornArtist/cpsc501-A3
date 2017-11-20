@@ -1,0 +1,19 @@
+
+public class PrimitiveConverter {
+	
+	
+	
+	public static Object getFromString(String primitive) {
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,29 @@
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import org.jdom2.Document;
+
+public class ObjectSender {
+	
+	
+	private Serializer serializer;
+	private ServerSocket socket;
+	
+	
+	private ObjectSender() throws IOException {
+		serializer = new Serializer();
+		socket = new ServerSocket(8080);
+		socket.setSoTimeout(100000);
+	}
+	
+	public void send(Object obj) {
+		Document doc = serializer.serialize(obj);
+		
+		
+		
+	}
+	
+	
+
+}

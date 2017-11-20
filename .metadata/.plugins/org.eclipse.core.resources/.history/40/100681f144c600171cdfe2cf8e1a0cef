@@ -1,0 +1,20 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Inspector i = new Inspector();
+		ArrayObject o = new ArrayObject(2);
+		
+		o.setAt(0, 'a');
+		o.setAt(1, 'b');
+		
+		o.setAt(0, new SimpleObject());
+		o.setAt(1, new SimpleObject());
+		
+		i.inspect(o);
+
+	}
+
+}

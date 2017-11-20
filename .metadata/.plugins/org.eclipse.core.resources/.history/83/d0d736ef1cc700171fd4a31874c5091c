@@ -1,0 +1,27 @@
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class ObjectSender {
+	
+	
+	private Serializer serializer;
+	private ServerSocket socket;
+	
+	
+	private ObjectSender() throws IOException {
+		serializer = new Serializer();
+		socket = new ServerSocket(8080);
+		
+		
+	}
+	
+	public static send(Object obj) {
+		
+		
+		
+		
+	}
+	
+	
+
+}

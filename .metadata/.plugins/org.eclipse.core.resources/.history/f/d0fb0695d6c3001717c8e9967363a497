@@ -1,0 +1,46 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import org.jdom2.Element;
+
+public class XMLArray extends XMLObject{
+	
+	private Integer length;
+	
+	protected XMLArray(Element objElement) {
+		super(objElement);
+		
+		String len = objElement.getAttributeValue(LENGTH_KEY);
+		length = new Integer(len);
+		
+	}
+	
+	@Override
+	public Object construct() {
+		return Array.newInstance(getType(), length);
+	}
+	
+	
+	public void setMembers(HashMap<Integer, XMLMember> existing) {
+		List<Element> children = getXML().getChildren();
+		for(int i = 0; i < children.size(); i++) {
+			
+			Element ele = children.get(i);
+			Object val;
+			String text = ele.getText();
+			
+			if(ele.getName().equals("reference")) {
+				Integer key = Integer.parseInt(text);
+				val = existing.get(key);
+			}
+			else {
+				val = PrimitiveConverter.getFromString(text);
+			}
+			
+			Array.set(getObject(), i, val);
+		}
+	}
+	
+}

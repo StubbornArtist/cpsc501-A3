@@ -1,0 +1,50 @@
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class InspectedObject {
+	
+	private Object object;
+	private Collection<InspectedObject> members;
+	
+	public static InspectedObject create(Object obj) {
+		Class<?> classObj = obj.getClass();
+		
+		if(classObj.isArray()) {
+			return new InspectedArray(obj);
+		}
+		
+		return new InspectedObject(obj);
+	}
+	
+	
+	
+	protected InspectedObject(Object obj) {
+		object = obj;
+		members = new ArrayList<InspectedObject>();
+		setMembers();
+	}
+	
+	protected void setMembers() {
+		for(Field f : object.getClass().getDeclaredFields()) {
+			try {
+				Object val = f.get(object);
+				addMember(InspectedObject.create(val));
+			}
+			catch(Exception e) {}
+		}
+	}
+	
+	public void addMember(InspectedObject member) {
+		members.add(member);
+	}
+	
+	public Object getObject() {
+		return object;
+	}
+	
+	public String inspect() {
+		return "Class : " + object.getClass().getName();
+	}
+
+}

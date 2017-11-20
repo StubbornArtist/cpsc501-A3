@@ -1,0 +1,33 @@
+import java.util.Collection;
+
+public class InspectedObject {
+	
+	private String inspected;
+	private Object object;
+	private Collection<InspectedObject> fields;
+	
+	public static InspectedObject create(Object obj) {
+		Class<?> classObj = obj.getClass();
+		
+		if(classObj.isArray()) {
+			return new InspectedArray(obj);
+		}
+		
+		return new InspectedObject(obj);
+	}
+	
+	
+	
+	protected InspectedObject(Object obj) {
+		inspected = "";
+		object = obj;
+	}
+	
+	
+	public String inspect() {
+		return "Class : " + object.getClass().getName() +
+				"\nFields : " + 
+		
+	}
+
+}

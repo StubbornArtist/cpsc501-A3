@@ -1,0 +1,13 @@
+
+public class ArrayObject {
+	
+	private char [] primitiveArray;
+	private SimpleObject [] referenceArray;
+	
+	
+	public ArrayObject(int len1, int len2) {
+		
+		
+	}
+
+}

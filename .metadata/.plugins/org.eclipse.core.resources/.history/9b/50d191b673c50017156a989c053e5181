@@ -1,0 +1,16 @@
+
+public class ArrayObject {
+	
+	private char [] primitiveArray;
+	private SimpleObject [] referenceArray;
+	
+	
+	public ArrayObject(int len1, int len2) {
+		primitiveArray = new char[len1];
+		referenceArray = new SimpleObject[len2];
+	}
+	
+	
+	public void setAt()
+
+}

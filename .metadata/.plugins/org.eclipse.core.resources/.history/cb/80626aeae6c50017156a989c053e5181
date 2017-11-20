@@ -1,0 +1,9 @@
+
+public class InspectedArray extends InspectedObject {
+	
+	protected InspectedArray(Object array) {
+		super(array);
+
+	}
+
+}

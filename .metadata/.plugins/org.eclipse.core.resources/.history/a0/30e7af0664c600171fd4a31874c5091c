@@ -1,0 +1,38 @@
+import java.util.Collection;
+import java.util.Scanner;
+
+public class ObjectCreatorView {
+	
+	private Scanner input; 
+	private IController controller;
+	private Collection<ObjectView> objectViews;
+	
+	public ObjectCreatorView() {
+		input = new Scanner(System.in);
+		objectViews = new ArrayList<ObjectView>();
+	}
+	
+	public void requestObject() {
+		System.out.println("Select one of the objects below... ");
+		System.out.println("1 : SimpleObject");
+		System.out.println("2 : ArrayObject");
+		System.out.println("3 : ReferenceObject");
+		System.out.println("\nSelection : ");
+	}
+	
+	
+	public void recieveObject() {		
+		controller.onTextInput(input.nextLine());	
+	}
+	
+	
+	public void addListener(IController controller) {
+		this.controller = controller;
+	}
+	
+	
+	public void run() {
+		requestObject();
+		recieveObject();
+	}
+}

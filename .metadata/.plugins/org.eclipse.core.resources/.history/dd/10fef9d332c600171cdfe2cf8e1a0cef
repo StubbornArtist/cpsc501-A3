@@ -1,0 +1,16 @@
+
+public class InspectedComponent {
+	
+	
+	public static InspectedComponent create(Object obj) {
+		Class<?> classObj = obj.getClass();
+		
+		if(classObj.isArray()) {
+			return new InspectedArray(obj);
+		}
+		
+		return new InspectedObject(obj);
+	}
+	
+
+}

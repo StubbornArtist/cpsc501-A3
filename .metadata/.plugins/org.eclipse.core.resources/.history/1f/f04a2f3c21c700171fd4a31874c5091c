@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class ArrayObjectView implements ObjectView{
+
+	private IController controller;
+	private Scanner input;
+	
+	public ArrayObjectView() {
+		input = new Scanner(System.in);
+	}
+	
+	@Override
+	public String getName() {
+		return "ArrayObject";
+	}
+
+	@Override
+	public void run() {
+
+		
+	}
+
+	@Override
+	public void addListener(IController controller) {
+		this.controller = controller;
+	}
+
+}

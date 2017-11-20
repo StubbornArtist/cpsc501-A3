@@ -1,0 +1,33 @@
+import java.util.List;
+
+public class ReferenceCollectionObjectController implements IController{
+	
+	private View view;
+	private ReferenceCollectionObject model;
+	
+	
+	public ReferenceCollectionObjectController(View view) {
+		this.view = view;
+		this.view.addListener(this);
+		this.model = new ReferenceCollectionObject();
+	}
+
+	@Override
+	public void onTextInput(List<String> input) {
+		
+		for(int i = 0; i < input.size()/2; i++) {
+			
+			SimpleObject obj = new SimpleObject();
+			obj.setNum(new Integer(input.remove(0)));
+			obj.setLetter(input.remove(0).charAt(0));
+			
+			this.model.addSimpleObject(obj);
+		}
+		try {
+			
+			
+		}catch(Exception e) {}
+		
+	}
+
+}

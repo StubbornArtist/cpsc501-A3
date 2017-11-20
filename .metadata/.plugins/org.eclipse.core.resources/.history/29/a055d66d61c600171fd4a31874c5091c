@@ -1,0 +1,17 @@
+
+public class ObjectCreatorController implements IController {
+	
+	
+	public ObjectCreatorController(ObjectCreatorView view) {
+		
+		
+		
+	}
+	
+	@Override
+	public void onTextInput(String input) {
+		
+	}
+
+	
+}

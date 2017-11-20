@@ -1,0 +1,20 @@
+
+public class ArrayObjectController implements IController {
+	
+	private ObjectView view;
+	private ArrayObject model;
+	
+	public ArrayObjectController(ObjectView view) {
+		this.view = view;
+		this.view.addListener(this);
+	}
+
+	@Override
+	public void onTextInput(String[] input) {
+		model = new ArrayObject(new Integer(input[0]));
+		
+		
+		
+	}
+
+}

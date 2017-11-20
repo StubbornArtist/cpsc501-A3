@@ -1,0 +1,42 @@
+import java.lang.reflect.Constructor;
+import java.util.HashMap;
+import java.util.Map;
+
+public class PrimitiveWrapper{
+	
+	private static final Map<Class<?>, Class<?>> map = new HashMap<Class<?>, Class<?>>();
+	static {
+		
+		map.put(int.class, Integer.class);
+		map.put(float.class, Float.class);
+		map.put(double.class, Double.class);
+		map.put(long.class, Long.class);
+		map.put(short.class, Short.class);
+		map.put(byte.class, Byte.class);
+		map.put(char.class, Character.class);
+		map.put(boolean.class, Boolean.class);
+
+	}
+	
+	
+	
+	public static <T> Object wrap(T primitive) {
+		try {
+			
+			Class<?> primClass = primitive.getClass();
+			 
+			Class<?> wrapper = map.get(primClass);
+			 
+			Constructor<?> c = wrapper.getDeclaredConstructor(new Class[] {primClass});
+			 
+			return c.newInstance(primitive);
+		}
+		catch(Exception e) {
+			throw new RuntimeException();
+		}
+		 
+			
+	}
+	
+	
+}

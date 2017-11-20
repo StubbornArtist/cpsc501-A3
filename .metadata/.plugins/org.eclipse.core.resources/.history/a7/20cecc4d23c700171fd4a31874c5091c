@@ -1,0 +1,16 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		SimpleObjectView view1 = new SimpleObjectView();
+		SimpleObjectController controller1 = new SimpleObjectController(view1);
+		
+		ObjectCreatorView view = new ObjectCreatorView();
+		view.addObjectView(view1);
+		
+		view.run();
+	}
+
+}

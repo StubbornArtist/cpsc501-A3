@@ -1,0 +1,14 @@
+
+	public InspectedPrimitive(Object primitive) {
+		
+		
+		
+	}
+	
+	
+	public String inspect() {
+		
+		return "Value : " + 
+	}
+
+}

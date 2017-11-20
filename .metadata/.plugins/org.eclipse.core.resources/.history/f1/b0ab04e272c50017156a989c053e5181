@@ -1,0 +1,7 @@
+import java.util.Collection;
+
+public class ReferenceObject {
+	
+	private Collection<SimpleObject> simpleObjects;
+
+}

@@ -1,0 +1,18 @@
+import java.util.List;
+
+public class ReferenceArrayObjectController implements IController{
+	
+	private View 
+	public ReferenceArrayObjectController(View view) {
+		
+	}
+
+	@Override
+	public void onTextInput(List<String> input) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}

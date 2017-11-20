@@ -1,0 +1,22 @@
+
+public class ArrayObjectView implements ObjectView{
+
+	private IController controller;
+	
+	@Override
+	public String getName() {
+		return "ArrayObject";
+	}
+
+	@Override
+	public void run() {
+
+		
+	}
+
+	@Override
+	public void addListener(IController controller) {
+		this.controller = controller;
+	}
+
+}

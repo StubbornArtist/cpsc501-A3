@@ -1,0 +1,32 @@
+
+public class ReferenceCollectionObjectView extends ObjectView{
+
+	public void requestNum() {
+		System.out.println("int num : ");
+	}
+	
+	public void requestLetter() {
+		System.out.println("char letter : ");
+	}
+
+	public void questionContinue() {
+		System.out.println("continue? y/n");
+	}
+	
+	@Override
+	public String getName() {
+		return "ReferenceCollectionObject";
+	}
+
+	@Override
+	public void run() {
+		String next = "";
+		do {
+			requestNum();
+			requestLetter();
+			questionContinue();
+			
+		} while(getLine().toLowerCase().equals("y"));	
+	}
+
+}

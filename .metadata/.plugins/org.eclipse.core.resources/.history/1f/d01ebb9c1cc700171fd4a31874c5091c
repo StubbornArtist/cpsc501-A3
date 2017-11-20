@@ -1,0 +1,12 @@
+
+public class ObjectSender {
+	
+	
+	private Serializer serializer;
+	private Socket socket;
+	
+	
+	
+	
+
+}

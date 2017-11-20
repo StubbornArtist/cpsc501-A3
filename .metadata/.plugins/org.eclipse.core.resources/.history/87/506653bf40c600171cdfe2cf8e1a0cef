@@ -1,0 +1,18 @@
+
+public class InspectedPrimitive extends InspectedComponent{
+	
+	
+	
+	public InspectedPrimitive(Object primitive) {
+		
+		
+		
+	}
+	
+	
+	public String inspect() {
+		
+		
+	}
+
+}

@@ -1,0 +1,66 @@
+import org.jdom2.Element;
+
+public class XMLObjectConstructor {
+	
+	private Class<?> clazz;
+	private Integer identifier;
+	
+	public static XMLObject getConstructor(Element objElement) {
+		
+		if(isArray(objElement)) {
+			return new XMLArray(objElement);
+		}
+		else if(isObject(objElement)) {
+			return new XMLObject(objElement);
+		}
+		throw new RuntimeException("Invalid element");
+	}
+	
+	
+	
+	public static boolean isArray(Element objElement) {
+		return objElement.getAttribute("length") != null &&
+				isObject(objElement);
+				
+	}
+	
+	public static boolean isObject(Element objElement) {
+		return objElement.getAttribute("id") != null &&
+				objElement.getAttribute("class") != null;
+	}
+		
+	protected XMLObjectConstructor(Element objElement) {
+		
+		String className = objElement.getAttributeValue("class");
+		String id = objElement.getAttributeValue("id");
+		
+		identifier = new Integer(id);
+		
+		try {
+			clazz = Class.forName(className);
+		}
+		catch(ClassNotFoundException e) {
+			throw new RuntimeException();
+		}
+	}
+	
+	public Class<?> getType(){
+		return clazz;
+	}
+	
+	public Integer getId() {
+		return identifier;
+	}
+	
+	
+	public Object construct() {
+		try {
+			return clazz.newInstance();
+		}
+		catch(Exception e) {
+			throw new RuntimeException();
+		}
+	}
+		
+	
+}

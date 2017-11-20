@@ -1,0 +1,19 @@
+
+public class InspectedArray extends InspectedObject {
+	
+	private int length;
+	
+	protected InspectedArray(Object array) {
+		super(array);
+
+	}
+	
+	
+	public String inspect() {
+		super.inspect() +
+		"\nLength : " + 
+		
+	}
+	
+
+}

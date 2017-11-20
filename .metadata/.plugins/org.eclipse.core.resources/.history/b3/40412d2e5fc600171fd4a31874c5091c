@@ -1,0 +1,11 @@
+
+public class ObjectCreatorController implements IController {
+
+	@Override
+	public void onTextInput(String input) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+}

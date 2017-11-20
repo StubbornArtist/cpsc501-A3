@@ -1,0 +1,158 @@
+import org.junit.*;
+import static org.junit.Assert.*;
+
+import java.io.IOException;
+import java.io.StringReader;
+import java.util.Arrays;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
+
+public class SerializerTest {
+	
+	private static Serializer serializer;
+	
+	private Document getDocument(String root) throws Exception{
+		SAXBuilder builder = new SAXBuilder();
+		return builder.build(new StringReader("<serialized>" + root + "</serialized>"));
+	}
+	
+	private Element getRoot(String root) throws Exception{
+		return getDocument(root).getRootElement();
+	}
+	
+	private String xmlString(Document doc) {
+		XMLOutputter out = new XMLOutputter(Format.getPrettyFormat());
+		return out.outputString(doc);
+		
+	}
+	
+	@BeforeClass
+	public static void setUp() {
+		serializer = new Serializer();
+	}
+	
+	@Test
+	public void testEmptyClass() {
+		Document result = serializer.serialize(new EmptyClass());
+		String stringResult = xmlString(result);
+	
+		assertTrue(stringResult.equals( "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n" + 
+									"<serialized>\r\n" + 
+									"\t<object class=\"EmptyClass\" id=\"0\" />\r\n" + 
+									"</serialized>"));
+	}
+	
+	@Test
+	public void testPrimitiveArray() {
+		Document result = serializer.serialize(new double[] {1.0, 2.0, 3.0});
+		String stringResult = xmlString(result);			
+		assertEquals(stringResult, "");
+	}
+	
+	
+	@Test
+	public void testTwoDimensionalArray() {
+		Document result = serializer.serialize(new char[][] {{'a'}, {'b'}});
+		try {
+			Document expected = getDocument("<object id = \"0\" class=\"[[C\" length=\"2\">\r\n"
+					+ "<reference>1</reference>\r\n"
+					+ "<reference>2</reference>\r\n"
+					+ "</object>\r\n"
+					+ "<object id=\"1\" class=\"[C\" length=\"1\">\r\n"
+					+ "<value>a</value>\r\n"
+					+ "</object>\r\n"
+					+ "<object id=\"2\" class=\"[C\" length=\"1\">\r\n"
+					+ "<value>b</value>\r\n"
+					+ "</object>\r\n");
+			
+			assertEquals(result, expected);
+			
+		}catch(Exception e) {
+			fail();
+		}	
+	}
+	
+	@Test
+	public void testEmptyArray() {
+		Document result = serializer.serialize(new float[] {});		
+		try {
+			Document expected = getDocument("<object id=\"0\" class=\"[F\" length=\"0\">\r\n"
+					+ "</object>\r\n");
+			assertEquals(result, expected);
+		}catch(Exception e) {
+			fail();
+		}
+	}
+	
+	@Test
+	public void testClassWithArray() {
+		Document result = serializer.serialize(new PrimitiveArrayClass());		
+		try {
+			Document expected = getDocument("<object id =\"0\" class=\"PrimitiveArrayClass\">\r\n"
+					+ "<field declaringclass=\"PrimitiveArrayClass\" name=\"integers\">\r\n"
+					+ "<reference>1</reference>\r\n"
+					+ "</field>\r\n"
+					+ "</object>\r\n"
+					+ "<object id = \"1\" class=\"[I\" length=\"2\">\r\n"
+					+ "<value>1</value>\r\n"
+					+ "<value>2</value>\r\n"
+					+ "</object>\r\n");
+			assertEquals(result, expected);
+		}catch(Exception e) {
+			fail();
+		}		
+	}
+	
+	@Test
+	public void testClassWithNullField() {
+		Document result = serializer.serialize(new NullFieldClass());		
+		try {
+			Document expected = getDocument("<object id=\"0\" class=\"NullFieldClass\">\r\n"
+					+ "<field declaringclass=\"NullFieldClass\" name=\"obj\">\r\n"
+					+ "<value>null</value>\r\n"
+					+ "</field>\r\n"
+					+ "</object>\r\n");
+			assertEquals(result, expected);
+		}catch(Exception e) {
+			fail();
+		}		
+	}
+	
+	
+	@Test
+	public void testClassWithPrimitive() {
+		Document result = serializer.serialize(new OnePrimitiveClass());		
+		try {
+			Document expected = getDocument("<object id=\"0\" class=\"OnePrimitiveClass\">\r\n"
+					+ "<field declaringclass=\"OnePrimitiveClass\" name=\"prim\">\r\n"
+					+ "<value>1</value>\r\n"
+					+ "</field>\r\n"
+					+ "</object>\r\n");
+			assertEquals(result, expected);
+		}catch(Exception e) {
+			fail();
+		}
+	}
+	
+	@Test
+	public void testClassWithClassField() {
+		Document result = serializer.serialize(new OneClassFieldClass());		
+		try {
+			Document expected = getDocument("<object id =\"0\" class=\"OneClassFieldClass\">\r\n"
+					+ "<field declaringclass=\"OneClassFieldClass\" name=\"obj\">\r\n"
+					+ "<reference>1</reference>"
+					+ "</field>\r\n"
+					+ "</object>\r\n"
+					+ "<object id=\"1\" class=\"EmptyClass\">\r\n"
+					+ "</object>\r\n");
+			assertEquals(result, expected);
+		}catch(Exception e) {
+			fail();
+		}	
+	}
+
+}

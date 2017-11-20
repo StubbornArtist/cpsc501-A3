@@ -1,0 +1,22 @@
+import java.net.ServerSocket;
+
+public class ObjectReciever {
+
+	private static ServerSocket socket;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		try {
+			
+			socket = new ServerSocket(8080);
+			
+		}
+		catch(Exception e) {	
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}

@@ -1,0 +1,22 @@
+
+public class SimpleObjectView implements ObjectView{
+
+	@Override
+	public String getName() {
+		// TODO Auto-generated method stub
+		return "SimpleObject";
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addListener(IController controller) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

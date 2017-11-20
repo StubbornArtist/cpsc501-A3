@@ -1,0 +1,36 @@
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class InspectedObject extends InspectedPrimitive{
+	
+	private Collection<InspectedComponent> members;
+		
+	protected InspectedObject(Object obj) {
+		super(obj);
+		members = new ArrayList<InspectedComponent>();
+		setMembers();
+	}
+	
+	protected void setMembers() {
+		for(Field field : getObject().getClass().getDeclaredFields()) {
+			try {
+				InspectedField iField = new InspectedField(field);
+				Object val = field.get(getObject());
+				iField.setValue(val);
+				addMember(iField);
+			}
+			catch(Exception e) {}
+		}
+	}
+	
+	public void addMember(InspectedComponent member) {
+		members.add(member);
+	}
+		
+	@Override
+	public String inspect() {
+		return "Class : " + getObject().getClass().getName();
+	}
+
+}

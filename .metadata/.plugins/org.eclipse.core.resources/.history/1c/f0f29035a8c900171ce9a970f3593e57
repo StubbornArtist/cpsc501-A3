@@ -1,0 +1,41 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class ReferenceObjectView extends ObjectView{
+	
+	
+	public void requestSimpleObj() {
+		System.out.println("SimpleObject simpleObject: ");
+	}
+			
+	@Override
+	public String getName() {
+		return "ReferenceObject";
+	}
+
+	@Override
+	public void run() {
+		
+		List<String> args = new ArrayList<String>();
+		
+		requestLength();
+		Integer len = new Integer(getLine());
+		requestSimpleObj();
+		requestSimpleObjNum();
+		args.add(getLine());
+		requestSimpleObjLetter();
+		args.add(getLine());
+		
+		for(int i = 0; i < len; i++) {
+			requestMember(i);
+			requestSimpleObjNum();
+			args.add(getLine());
+			requestSimpleObjLetter();
+			args.add(getLine());
+		}
+		
+		notifyController(args);
+	}
+
+}

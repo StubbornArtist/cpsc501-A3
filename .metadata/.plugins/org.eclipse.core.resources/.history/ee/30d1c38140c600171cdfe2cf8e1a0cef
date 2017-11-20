@@ -1,0 +1,16 @@
+
+public abstract class InspectedComponent {
+	
+	
+	public static InspectedComponent create(Class<?> type, Object value) {		
+		if(type.isArray()) {
+			return new InspectedArray(value);
+		}
+		
+		return new InspectedObject(value);
+	}
+	
+	
+	public abstract String inspect();
+
+}

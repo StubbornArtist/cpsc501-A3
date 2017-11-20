@@ -1,0 +1,19 @@
+
+public class ObjectCreatorController implements IController {
+	
+	
+	private HashMap<ObjectView>
+	
+	public ObjectCreatorController(ObjectCreatorView view) {
+		
+		
+		
+	}
+	
+	@Override
+	public void onTextInput(String input) {
+		
+	}
+
+	
+}

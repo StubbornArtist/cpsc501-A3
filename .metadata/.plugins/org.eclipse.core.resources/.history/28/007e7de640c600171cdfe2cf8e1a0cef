@@ -1,0 +1,17 @@
+public class InspectedPrimitive extends InspectedComponent{
+	
+	private Object value;
+	
+	protected InspectedPrimitive(Object primitive) {
+		
+		
+		
+	}
+	
+	
+	public String inspect() {
+		
+		return "Value : " + 
+	}
+
+}

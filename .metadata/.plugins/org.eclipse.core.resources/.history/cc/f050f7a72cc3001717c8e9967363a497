@@ -1,0 +1,18 @@
+import java.util.HashMap;
+
+public class PrimitiveWrapper {
+	
+	private static final HashMap<Class<?>, Class<?>> map = new HashMap<Class<?>, Class<?>>{
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+
+}

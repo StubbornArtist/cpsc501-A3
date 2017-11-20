@@ -1,0 +1,9 @@
+import java.util.List;
+
+public abstract class Controller {
+	
+	
+	
+	public abstract void onTextInput(List<String> input);
+
+}

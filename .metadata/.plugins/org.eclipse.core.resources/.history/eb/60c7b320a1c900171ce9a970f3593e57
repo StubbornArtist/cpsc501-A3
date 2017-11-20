@@ -1,0 +1,19 @@
+
+public class ReferenceArrayObjectView extends ObjectView {
+
+	
+	
+
+	
+	@Override
+	public void run() {
+		
+		
+	}
+
+	@Override
+	public String getName() {
+		return "ReferenceArrayObjectView";
+	}
+
+}

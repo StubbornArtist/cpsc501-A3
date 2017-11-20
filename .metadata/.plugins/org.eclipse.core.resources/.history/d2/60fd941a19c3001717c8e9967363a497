@@ -1,0 +1,35 @@
+import org.jdom2.Element;
+
+public abstract class XMLMember {
+	
+	public static XMLMember getConstructor(Element objElement) {
+		
+		if(XMLArray.isArray(objElement)) {
+			return new XMLArray(objElement);
+		}
+		else if(XMLObject.isObject(objElement)) {
+			return new XMLObject(objElement);
+		}
+		throw new RuntimeException("Invalid element");
+	}
+	
+	
+	
+	protected XMLMember(Element objElement) {
+		
+		String className = objElement.getAttributeValue(CLASS_KEY);
+		String id = objElement.getAttributeValue(ID_KEY);
+		
+		identifier = new Integer(id);
+		
+		try {
+			clazz = Class.forName(className);
+		}
+		catch(ClassNotFoundException e) {
+			throw new RuntimeException();
+		}
+	}
+	
+	
+
+}

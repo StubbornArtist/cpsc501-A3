@@ -1,0 +1,17 @@
+
+public class ObjectCreatorController implements IController {
+	
+	private ObjectCreatorView view;
+	
+	public ObjectCreatorController(ObjectCreatorView view) {
+		this.view = view;
+		this.view.addListener(this);
+	}
+	
+	@Override
+	public void onTextInput(String [] input) {
+		Integer choice = new Integer(input);
+	}
+
+	
+}

@@ -1,0 +1,24 @@
+
+public class ReferenceCollectionObjectView extends ObjectView{
+
+	public void requestNum() {
+		System.out.println("int num : ");
+	}
+	
+	public void requestLetter() {
+		System.out.println("char letter : ");
+	}
+	
+	@Override
+	public String getName() {
+		return "ReferenceCollectionObject";
+	}
+
+	@Override
+	public void run() {
+		do {
+			
+		} while();	
+	}
+
+}

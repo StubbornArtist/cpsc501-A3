@@ -1,0 +1,45 @@
+import org.jdom2.Element;
+
+public class XMLObject {
+	
+	private Class<?> clazz;
+	private Integer identifier;
+	
+	private static final String ID_KEY = "id";
+	private static final String CLASS_KEY = "class";
+	
+	
+	protected XMLObject(Element objElement) {
+		
+		String className = objElement.getAttributeValue(CLASS_KEY);
+		String id = objElement.getAttributeValue(ID_KEY);
+		
+		identifier = new Integer(id);
+		
+		try {
+			clazz = Class.forName(className);
+		}
+		catch(ClassNotFoundException e) {
+			throw new RuntimeException();
+		}
+	}
+	
+	
+	
+
+	public static boolean isObject(Element objElement) {
+		return objElement.getAttribute(ID_KEY) != null &&
+				objElement.getAttribute(CLASS_KEY) != null;
+	}
+				
+	public Object construct() {
+		try {
+			return clazz.newInstance();
+		}
+		catch(Exception e) {
+			throw new RuntimeException();
+		}
+	}
+		
+	
+}

@@ -1,0 +1,17 @@
+
+public class SimpleObject {
+	
+	private int num1;
+	private double num2;
+	
+	
+	
+	
+	public SimpleObject() {
+		
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+
+public class ArrayObjectController implements IController {
+	
+	private ObjectView view;
+	
+	public ArrayObjectController(ObjectView view) {
+		view.addListener(controller);
+	}
+
+	@Override
+	public void onTextInput(String[] input) {
+		
+		
+	}
+
+}

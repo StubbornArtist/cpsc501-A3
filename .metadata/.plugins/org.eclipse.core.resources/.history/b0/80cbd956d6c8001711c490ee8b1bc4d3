@@ -1,0 +1,7 @@
+
+public abstract class ObjectView extends View{
+	
+	public String getName();
+	
+
+}

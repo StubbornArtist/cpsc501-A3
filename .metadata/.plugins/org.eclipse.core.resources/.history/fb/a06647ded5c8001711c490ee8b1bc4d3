@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public abstract class View {
+	
+	private Scanner input;
+	private IController controller;
+	
+	
+	public abstract void run();
+	
+	public void addListener(IController controller) {
+		this.controller = controller;
+		
+	}
+}

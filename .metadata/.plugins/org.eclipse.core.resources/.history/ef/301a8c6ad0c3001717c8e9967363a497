@@ -1,0 +1,24 @@
+
+public class PrimitiveConverter {
+	
+	
+	
+	public static Object getFromString(String primitive) {
+		
+		try {
+			return Integer.valueOf(primitive);
+		}
+		catch(NumberFormatException e) {
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

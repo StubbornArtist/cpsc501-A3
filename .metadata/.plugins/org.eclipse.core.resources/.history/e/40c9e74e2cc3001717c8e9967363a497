@@ -1,0 +1,12 @@
+
+public class PrimitiveWrapper {
+	
+	private static final HashMap<Class<?>, Class<?>> map;
+	
+	
+	
+	
+	
+	
+
+}

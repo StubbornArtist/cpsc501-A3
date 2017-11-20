@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+
+public class Deserializer {
+	
+	private ArrayList<Element> elements;
+	private HashMap<Integer, Object> objects;
+	
+
+	public Deserializer() {
+		objects = new HashMap<Integer, Object>();
+	}
+	
+	public Object deserialize(Document doc) {
+		elements = (ArrayList<Element>)doc.getRootElement().getChildren();
+		constructObjects();
+		
+		return objects.get(1);
+	}
+	
+	
+	private void constructObjects() {
+		for(Element object : elements) {	
+			constructObject(object);
+		}
+	}
+		
+	private void constructObject(Element object) {
+		XMLMember member = XMLMember.get(object);
+		objects.put(member.getId(), member.construct());
+		members.add(member);
+	}
+
+}

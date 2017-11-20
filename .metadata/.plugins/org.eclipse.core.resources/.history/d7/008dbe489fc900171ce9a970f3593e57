@@ -1,0 +1,12 @@
+import java.util.ArrayList;
+import java.util.Collection;
+
+public class ReferenceCollectionObject {
+	
+	private Collection<SimpleObject> simpleObjects;
+	
+	public ReferenceCollectionObject() {
+		simpleObjects = new ArrayList<SimpleObject>();
+	}
+
+}

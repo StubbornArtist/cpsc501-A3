@@ -1,0 +1,24 @@
+
+public class SimpleObjectView implements ObjectView{
+
+	private IController controller;
+	
+	
+	
+	
+	@Override
+	public String getName() {
+		return "SimpleObject";
+	}
+
+	@Override
+	public void run() {
+		
+	}
+
+	@Override
+	public void addListener(IController controller) {
+		this.controller = controller;
+	}
+
+}

@@ -1,0 +1,8 @@
+
+public interface ObjectView {
+	
+	public String getName();
+	
+	
+
+}
